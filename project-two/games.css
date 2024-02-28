@@ -1,0 +1,322 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Maven Pro', sans-serif;
+    background-color: #0d0d1f;
+    position: relative;
+}
+.fon-image{
+    background-image: url(img/ab5f2c6bad22fae90effb5fd64fa196f.jpeg);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    filter: brightness(30%);
+    position: fixed;
+    z-index: -1;
+}
+button{
+    font-family: 'Maven Pro', sans-serif;
+}
+
+header{
+    width: 100%;
+    position: relative;
+    transition: background-image 1s ease;
+    margin: 0;
+}
+
+.header-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 200px;
+    color: white;
+}
+.header-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-main li{
+    list-style-type: none;
+    display: inline;
+    margin-left: 10px;
+}
+.header-li a {
+    text-decoration: none;
+    color: white;
+    transition: color 1s ease;
+}
+.header-li a:hover{
+    color:yellow ;
+}
+.header-main form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+.header-main input{
+    width: 200px;
+    padding: 10px;
+    padding-right: 30px;
+    border-radius: 20px;
+    border: 1px solid white;
+    color: white;
+    background: transparent;
+}
+.header-main-button {
+    background: transparent;
+    position: absolute;
+    border: none;
+    right: 10px;
+}
+.button-icon{
+    height: 20px;
+    width: 20px;
+    color: white;
+}
+
+.header-icon{
+    height: 30px;
+    width: 30px;
+    color: yellow;
+}
+
+
+.game{
+    width: 70%;
+    margin: 0 auto;
+    height: auto;
+}
+
+.game-ele{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+}
+
+.h1{
+    font-size: 30px;
+    color: white;
+    border-left: 4px solid yellow;
+    padding-left: 10px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.h1 span{
+    margin-right: 7px;
+}
+
+.game p{
+    color: white;
+}
+.game h3{
+    color: yellow;
+}
+
+
+
+.video{
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+}
+
+.game-elements{
+    width: 70%;
+}
+
+.game-elements h1{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.game-sticky{
+    width: 30%;
+    height: 400px;
+    border-radius: 30px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game-sticky-elements{
+    width: 90% ; 
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.game-sticky-elements-img{
+    width: 100%;
+    height: 250px;
+    border-radius: 30px;
+    background-size: cover;
+    background-position: center;
+}
+.price{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.p1{
+    color: gray;
+}
+.buttons{
+    width: 90%;
+    margin: auto;
+}
+.buttons-button-1{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: yellow;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.buttons-button-2{
+    width: 100%;
+    padding: 15px;
+    border: 1px solid yellow;
+    color: white;
+    border-radius: 15px;
+    background: transparent;
+}
+
+.system-section{
+    margin-left: 200px;
+    margin-top: 100px;
+}
+
+.system{
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.578);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.system h2{
+    color: white;
+}
+
+.system h3{
+    color: white;
+}
+
+.system-minimum{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.system-minimum h4{
+    margin-bottom: 0px;
+    color: white;
+}
+
+.system-minimum p{
+    margin-top: 5px;
+    color: white;
+}
+
+.sys{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+hr{
+    border: 1px solid yellow;
+    width: 100%;
+}
+.h4{
+    margin-bottom: 0;
+    color: white;
+}
+.p-audio{
+    margin-bottom: 0;
+    color: white;
+}
+.p-text{
+    color: white;
+}
+
+footer{
+    width: 100%;
+    height: 230px;
+    background-color: #1f1f4b;
+    margin-top: 100px;
+}
+.footer{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.footer-elements{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-elements h1{
+    color: yellow;
+}
+
+.footer-elements a{
+    text-decoration: none;
+    color: white;
+
+}
+
+.footer-elements p{
+    color: white;
+}
+.footer-element-a{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-element-icon{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+}
+
+.ion-icons{
+    width: 25px;
+    height: 25px;
+}
