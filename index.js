@@ -230,6 +230,8 @@ let games_free = [
     },
 ]
 
+let local = JSON.parse(localStorage.getItem('cart'));
+
 function createDiscountGameCard(game) {
     // Create elements
     var cardDiv = document.createElement('div');
@@ -272,11 +274,22 @@ function createDiscountGameCard(game) {
     var heartButton = document.createElement('button');
     heartButton.classList.add('text-button-two');
     heartButton.style.opacity = '0';
+    
 
+    
     var heartIcon = document.createElement('ion-icon');
     heartIcon.setAttribute('name', 'heart-outline');
     heartIcon.classList.add('button-icon');
-
+    if(isAddedToCart){
+        heartIcon.setAttribute('name', 'heart');
+        heartButton.style.color ='red';
+        heartButton.enabled = false  
+    }else{
+        heartIcon.setAttribute('name', 'heart-outline');
+        heartButton.addEventListener('click', () => {
+            addToCart(game);
+        })
+    }
     cardDiv.addEventListener('mouseenter', () => {
         titleH1.style.bottom = '70px';
         titleH1.style.transition = 'bottom 0.5s ease-out';
@@ -318,6 +331,22 @@ function createDiscountGameCard(game) {
     return cardDiv;
 }
 
+function isAddedToCart(product) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    return cart.find((p) => p.id == product.id) != null;
+}
+
+function addToCart(product) {
+    const cart = localStorage.getItem("cart");
+    const cartItems = JSON.parse(cart) || [];
+    if (cartItems.find(item  => item.id == product.id)) {
+      return;
+    }
+    cartItems.push({...product, quantity: 1});
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+    window.location.reload()
+  }
+
 let div = document.querySelector('.discount-game-cards');
 for(let i of games_discount){
     let card = createDiscountGameCard(i);
@@ -329,7 +358,8 @@ for(let j of games_free){
     let card = createDiscountGameCard(j);
     div_free.appendChild(card);
 }
-
+// let arr = []
+// localStorage.setItem('cart', JSON.stringify(arr))
 
 // games_featured
 let cards = [
@@ -426,25 +456,25 @@ img.addEventListener('mouseleave', () => {
 // table games
 let new_releases = [
     {
-        id: 1,
+        id: 11,
         img: 'img/skull&bones.jpg',
         name: 'Skull and Bones',
         price:'20 000₸'
     },
     {
-        id: 2,
+        id: 12,
         img: 'img/783028.jpg',
         name:'Dead by daylight',
         price: '5 000₸'
     },
     {
-        id: 3,
+        id: 13,
         img: 'img/gta-5-in-photoshop-grand-theft-auto-five-wallpaper-preview.jpg',
         name:'GTA V',
         price: '8 100₸'
     },
     {
-        id: 4,
+        id: 14,
         img: 'img/nightingale-4k-pt-2560x1600.jpg',
         name:'Nightingale',
         discount: true,
@@ -452,40 +482,40 @@ let new_releases = [
         price: '6 840₸'
     },
     {
-        id: 5,
+        id: 15,
         img: 'img/motoff702.jpg',
         name: 'Alan Wake 2',
         price: '16 750₸'
-    }
+    },
 ]
 
 let mast_played = [
     {
-        id: 1,
+        id: 16,
         img: 'img/1346544.png',
         name:'Fortnite',
         price: 'free'
     },
     {
-        id: 2,
+        id: 17,
         img: 'img/1335863.jpg',
         name:'Rocket League',
         price: 'free'
     },
     {
-        id: 3,
+        id: 18,
         img: 'img/gta-5-in-photoshop-grand-theft-auto-five-wallpaper-preview.jpg',
         name:'GTA V',
         price: '8 100₸'
     },
     {
-        id: 4,
+        id: 19,
         img: 'img/valorant-agent-omen-3840x2160-14510.jpeg',
         name:'Valorant',
         price: 'free'
     },
     {
-        id: 5,
+        id: 20,
         img: 'img/2505746.jpg',
         name:'Genshin Impact',
         price: 'free'
@@ -494,31 +524,31 @@ let mast_played = [
 
 let new_releas = [
     {
-        id: 1,
+        id: 21,
         img: 'img/wp6448284.jpg',
         name:'The Last of Us',
         price: '23 499₸'
     },
     {
-        id: 2,
+        id: 22,
         img: 'img/1143078.jpg',
         name:'Mortal Kombat X',
         price: '6 700₸'
     },
     {
-        id: 3,
+        id: 23,
         img: 'img/wp6429396.jpg',
         name:"Assassin's creed: Valhalla",
         price: '3 674₸'
     },
     {
-        id: 4,
+        id: 24,
         img: 'img/R.jpg',
         name: 'God of War',
         price: '18 999₸'
     },
     {
-        id: 5,
+        id: 25,
         img: 'img/hogwarts-legacy-key-art-01-ps5-en-02oct20.webp',
         name: 'Hogwarts legacy',
         price:'22 999₸'
@@ -528,6 +558,9 @@ function createTableGamesCard(i) {
     // Create elements
     var cardDiv = document.createElement('div');
     cardDiv.className = 'table-games-card';
+    cardDiv.addEventListener('click', () => {
+        window.location.href =`games.html?game=${i.id}`;
+    })
 
     var button = document.createElement('button');
     button.className = 'text-button-two';
