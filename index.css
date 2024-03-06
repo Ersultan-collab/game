@@ -2,12 +2,11 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Maven Pro', sans-serif;
-    background-color: #0d0d1f;
+   background-color: #0d0d1f;
 }
 button{
     font-family: 'Maven Pro', sans-serif;
 }
-
 
 
 /* header */
@@ -106,6 +105,7 @@ header{
     gap: 20px;
     position: absolute;
     top: 340px;
+    margin-left: 200px;
 }
 
 .header-section-banner{
@@ -565,7 +565,9 @@ header{
     border-radius: 10px;
     box-shadow: 1px 1px 10px 1px yellow;
 }
-
+.Browse-All{
+    cursor: pointer;
+}
 
 
 /* games */
@@ -599,7 +601,6 @@ header{
     position: absolute;
     left: 100px;
     bottom: 0;
-    background-image: url(img/OIP-removebg.png);
     background-size: 100% 100%;
 }
 .games_game-texts{
@@ -643,7 +644,6 @@ header{
     position: absolute;
     left: 0px;
     bottom: 0;
-    background-image: url(img/4495350.webp);
     background-size: 100% 100%;
 }
 
@@ -664,7 +664,6 @@ header{
     position: absolute;
     left: 50px;
     bottom: 0;
-    background-image: url(img/rdr.png);
     background-size: 100% 100%;
 }
 
@@ -724,3 +723,4 @@ footer{
     width: 25px;
     height: 25px;
 }
+

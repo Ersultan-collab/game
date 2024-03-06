@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="game.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,600&family=Maven+Pro:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
+    
     <header>
         <div class="header-menu">
             <div class="header-logo"><h1>GAME</h1></div>
             <div class="header-main">
                 <ul class="header-ul">
                     <li class="header-li"><a href="index.html">Home</a></li>
-                    <li class="header-li"><a href="game.html">Games</a></li>
+                    <li class="header-li"><a href="">Games</a></li>
                     <li class="header-li"><a href="">About us</a></li>
                     <li class="header-li"><a href="">Contact</a></li>
                 </ul>
@@ -24,33 +25,26 @@
                     <input type="search" placeholder="search">
                     <button class="header-main-button"><ion-icon name="search-outline" class="button-icon"></ion-icon></button>
                 </form>
-                
+                <ion-icon name="bag-remove" class="header-icon"></ion-icon>
             </div>
         </div>
     </header>
 
-    <section class="cart">
-        <h1 class="h1">My Cart</h1>
-        <div class="cart-cards">
-            <div class="cards">
+    <section class="categories">
+        <h1 class="h1">Popular Genres</h1>
+        <div class="categories-cards">
+            
+        </div>
+    </section>
+
+    <section class="discount-game">
+        <div class="discount-game-div">
+            <div class="discount-game-cards">
                 
             </div>
-            <div class="cart-summary">
-                <h1>Games Summary</h1>
-                <div class="cart-summary-price">
-                    <div class="price">
-                        <h3>Price</h3>
-                        <p>17 000</p>
-                    </div>
-                    <hr>
-                    <div class="total-price">
-                        <h3>Total price</h3>
-                        <p>10 000</p>
-                    </div>
-                    <button class="check-out">Check out</button>
-                </div>
-            </div>
+            <button class="load-more">Load more</button>
         </div>
+        
     </section>
 
     <footer>
@@ -83,7 +77,7 @@
             </div>
         </div>
     </footer>
-<script src="cart.js"></script>
+<script src="game.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

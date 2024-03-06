@@ -105,6 +105,21 @@
 // });
 
 
+let cart = document.querySelector('.header-icon')
+cart.style.cursor = 'pointer';
+cart.addEventListener('mouseenter', () => {
+    cart.style.color = 'white';
+    cart.style.transition = 'color 0.5s ease-out';
+})
+
+cart.addEventListener('mouseleave', () => {
+    cart.style.color = 'yellow';
+    cart.style.transition = 'color 0.5s ease-out';
+})
+cart.addEventListener('click', () =>{
+    window.location.href = 'cart.html';
+})
+
 // categories
 let categories_games = [
     {
@@ -169,31 +184,31 @@ let games_discount = [
         id: 1,
         img: 'img/battle.jpg',
         name:'Battlefield V',
-        price: '13 600₸'
+        price: '13 600'
     },
     {
         id: 2,
         img: 'img/wp13355414-lies-of-p-4k-wallpapers.png',
         name:'Lies of P',
-        price: '16 500₸'
+        price: '16 500'
     },
     {
         id: 3,
         img: 'img/ab5f2c6bad22fae90effb5fd64fa196f.jpeg',
         name: 'Elden Ring',
-        price: '17 999₸'
+        price: '17 999'
     },
     {
         id: 4,
         img: 'img/9695841.jpg',
         name:'Spider man 2',
-        price: '18 999₸'
+        price: '18 999'
     },
     {
         id: 5,
         img: 'img/wp6352566.jpg',
         name:'Cyberpunk 2077',
-        price: '13 108₸'
+        price: '13 108'
     },
 ]
 
@@ -253,7 +268,12 @@ function createDiscountGameCard(game) {
     titleH1.style.bottom = '0';
 
     var priceH3 = document.createElement('h3');
-    priceH3.textContent = game.price;
+    if(game.price == 'free') {
+        priceH3.textContent = 'free';
+    }else{
+        priceH3.textContent = game.price + '₸';
+    }
+    
     priceH3.style.color = 'white';
     priceH3.style.opacity = 0.
     
@@ -280,14 +300,13 @@ function createDiscountGameCard(game) {
     var heartIcon = document.createElement('ion-icon');
     heartIcon.setAttribute('name', 'heart-outline');
     heartIcon.classList.add('button-icon');
-    if(isAddedToCart){
-        heartIcon.setAttribute('name', 'heart');
-        heartButton.style.color ='red';
-        heartButton.enabled = false  
+    if(isAddedToCart(game)){
+        heartIcon.setAttribute('name', 'heart')
+        heartButton.enabled = false
     }else{
-        heartIcon.setAttribute('name', 'heart-outline');
+        heartIcon.setAttribute('name', 'heart-outline')
         heartButton.addEventListener('click', () => {
-            addToCart(game);
+            addToCart(game)
         })
     }
     cardDiv.addEventListener('mouseenter', () => {
@@ -339,10 +358,12 @@ function isAddedToCart(product) {
 function addToCart(product) {
     const cart = localStorage.getItem("cart");
     const cartItems = JSON.parse(cart) || [];
-    if (cartItems.find(item  => item.id == product.id)) {
+    let cartItem = cartItems.find(item  => item.id == product.id)
+    console.log(cartItem);
+    if (cartItem) {
       return;
     }
-    cartItems.push({...product, quantity: 1});
+    cartItems.push(product);
     localStorage.setItem("cart", JSON.stringify(cartItems));
     window.location.reload()
   }
@@ -358,8 +379,6 @@ for(let j of games_free){
     let card = createDiscountGameCard(j);
     div_free.appendChild(card);
 }
-// let arr = []
-// localStorage.setItem('cart', JSON.stringify(arr))
 
 // games_featured
 let cards = [
@@ -406,24 +425,7 @@ function createCardDiv(i) {
     cardDiv.appendChild(img);
     cardDiv.appendChild(p);
 
-    cardDiv.addEventListener('click', () => {
-        let index = cards[i.id - 1]; 
-        let img = document.querySelector('.featured-game-card-img');
-        img.style.opacity = 0;
-        img.style.transition = 'opacity 0.5s ease';
-
     
-        let text = document.querySelector('.featured-game-card-text h1');
-        text.style.opacity = 0;
-        text.style.transition = 'opacity 0.5s ease';
-    
-        img.addEventListener('transitionend', function() {
-            img.style.backgroundImage = `url(${index.img})`;
-            text.textContent = index.name;
-            img.style.opacity = 1;
-            text.style.opacity = 1;
-        }, { once: true }); // Указываем { once: true }, чтобы обработчик сработал только один раз
-    });
     
 
     return cardDiv;
@@ -459,33 +461,33 @@ let new_releases = [
         id: 11,
         img: 'img/skull&bones.jpg',
         name: 'Skull and Bones',
-        price:'20 000₸'
+        price:'20 000'
     },
     {
         id: 12,
         img: 'img/783028.jpg',
         name:'Dead by daylight',
-        price: '5 000₸'
+        price: '5 000'
     },
     {
         id: 13,
         img: 'img/gta-5-in-photoshop-grand-theft-auto-five-wallpaper-preview.jpg',
         name:'GTA V',
-        price: '8 100₸'
+        price: '8 100'
     },
     {
         id: 14,
         img: 'img/nightingale-4k-pt-2560x1600.jpg',
         name:'Nightingale',
         discount: true,
-        last_price: '7 600₸',
-        price: '6 840₸'
+        last_price: '7 600',
+        price: '6 840'
     },
     {
         id: 15,
         img: 'img/motoff702.jpg',
         name: 'Alan Wake 2',
-        price: '16 750₸'
+        price: '16 750'
     },
 ]
 
@@ -506,7 +508,7 @@ let mast_played = [
         id: 18,
         img: 'img/gta-5-in-photoshop-grand-theft-auto-five-wallpaper-preview.jpg',
         name:'GTA V',
-        price: '8 100₸'
+        price: '8 100'
     },
     {
         id: 19,
@@ -527,31 +529,31 @@ let new_releas = [
         id: 21,
         img: 'img/wp6448284.jpg',
         name:'The Last of Us',
-        price: '23 499₸'
+        price: '23 499'
     },
     {
         id: 22,
         img: 'img/1143078.jpg',
         name:'Mortal Kombat X',
-        price: '6 700₸'
+        price: '6 700'
     },
     {
         id: 23,
         img: 'img/wp6429396.jpg',
         name:"Assassin's creed: Valhalla",
-        price: '3 674₸'
+        price: '3 674'
     },
     {
         id: 24,
         img: 'img/R.jpg',
         name: 'God of War',
-        price: '18 999₸'
+        price: '18 999'
     },
     {
         id: 25,
         img: 'img/hogwarts-legacy-key-art-01-ps5-en-02oct20.webp',
         name: 'Hogwarts legacy',
-        price:'22 999₸'
+        price:'22 999'
     },
 ]
 function createTableGamesCard(i) {
@@ -561,18 +563,6 @@ function createTableGamesCard(i) {
     cardDiv.addEventListener('click', () => {
         window.location.href =`games.html?game=${i.id}`;
     })
-
-    var button = document.createElement('button');
-    button.className = 'text-button-two';
-    button.style.position = 'absolute';
-    button.style.right = '5px';
-    button.style.opacity = '0';
-    var icon = document.createElement('ion-icon');
-    icon.className = 'button-icon';
-    icon.setAttribute('name', 'heart-outline');
-
-   
-
     cardDiv.addEventListener('mouseenter', () => {
         cardDiv.style.backgroundColor = 'rgba(128, 128, 128, 0.449)'
         cardDiv.style.transition = 'background-color 0.5s ease-out';
@@ -586,6 +576,25 @@ function createTableGamesCard(i) {
         button.style.opacity = '0';
         button.style.transition = 'opacity 0.5s ease';
     })
+
+    var button = document.createElement('button');
+    button.className = 'text-button-two';
+    button.style.position = 'absolute';
+    button.style.right = '5px';
+    button.style.opacity = '0';
+    
+    var icon = document.createElement('ion-icon');
+    icon.className = 'button-icon';
+    icon.setAttribute('name', 'heart-outline');
+    if(isAddedToCart(i)){
+        icon.setAttribute('name', 'heart')
+        button.enabled = false
+    }else{
+        icon.setAttribute('name', 'heart-outline')
+        button.addEventListener('click', () => {
+            confirm('added to cart') ? addToCart(i) : removeFromCart(i);
+        })
+    }
 
     var imgDiv = document.createElement('div');
     imgDiv.className = 'table-games-card-img';
@@ -618,11 +627,17 @@ function createTableGamesCard(i) {
         div_text.appendChild(titleH1);
         div_text.appendChild(div_h2);
     }else{
-        priceH2.textContent = i.price;
+        if(i.price == 'free'){
+            priceH2.textContent = 'free'
+        }else{
+            priceH2.textContent = i.price + '₸';
+        }
+        
         div_text.appendChild(titleH1);
         div_text.appendChild(priceH2);
     }
 
+    
     // Append elements
     button.appendChild(icon);
     imgDiv.appendChild(button);
@@ -654,3 +669,106 @@ for(let i of mast_played){
     let card = createTableGamesCard(i);
     div4.appendChild(card);
 }
+
+
+let popular_games = [
+    {
+        id: 26,
+        img: 'img/OIP-removebg.png',
+        logo: 'img/R.png',
+        aboutgame: 'Cyberpunk 2077 is an open-world action/RPG video game developed and published by CD Projekt.',
+        background: 'to right, blueviolet, aqua'
+    },
+    { 
+        id: 27,
+        img: 'img/4495350.webp',
+        logo: 'img/ghost.png',
+        aboutgame: 'Ghostrunner is an action video game developed by One More Level and published by All In! Games in partnership with 505 Games',
+        background: 'to right, rgb(254, 167, 4), yellow ',
+        fle: 'row-reverse',
+        hei: 400,
+        wid: 650,
+        lef: 0,
+    },
+    {
+        id: 28,
+        img: 'img/rdr.png',
+        logo: 'img/rdrr.png',
+        aboutgame: 'Red Dead Redemption is an action-adventure video game developed by Rockstar San Diego with support from Rockstar North, Rockstar Neach, Rockstar Leeds, Rockstar New England and Rockstar Lincoln.',
+        background: 'to right,red ,  blueviolet ',
+        hei: 400,
+        wid: 400,
+    },
+]
+
+
+function createGameElement(i) {
+    // Create main container
+    var gameContainer = document.createElement("div");
+    gameContainer.classList.add("games_game");
+    gameContainer.style.background = `linear-gradient(${i.background})`
+    gameContainer.style.flexDirection = i.fle;
+
+    // Create game element container
+    var gameElement = document.createElement("div");
+    gameElement.classList.add("games_game-element");
+
+    // Create game image container
+    var gameImg = document.createElement("div");
+    gameImg.classList.add("games_game-img");
+    gameImg.style.backgroundImage = `url(${i.img})`;
+    gameImg.style.height = `${i.hei}px`;
+    gameImg.style.width = `${i.wid}px`;
+    gameImg.style.left = `${i.lef}px`;
+    gameElement.appendChild(gameImg);
+
+    // Create game texts container
+    var gameTexts = document.createElement("div");
+    gameTexts.classList.add("games_game-texts");
+
+    // Create image element
+    var img = document.createElement("img");
+    img.src = i.logo;
+    img.alt = "";
+    img.style.height = "80px";
+    gameTexts.appendChild(img);
+
+    // Create horizontal rule
+    var hr = document.createElement("hr");
+    gameTexts.appendChild(hr);
+
+    // Create paragraph element
+    var paragraph = document.createElement("p");
+    paragraph.textContent =i.aboutgame;
+    gameTexts.appendChild(paragraph);
+
+    // Create button element
+    var button = document.createElement("button");
+    button.textContent = "About the game";
+    button.style.cursor = "pointer";
+    button.addEventListener("click", () => {
+        window.location.href =`games.html?game=${i.id}`;
+    })
+    button.classList.add("text-button-one");
+    gameTexts.appendChild(button);
+
+    // Append game element to main container
+    gameContainer.appendChild(gameElement);
+    // Append game texts to main container
+    gameContainer.appendChild(gameTexts);
+
+    return gameContainer;
+}
+
+let popu = document.querySelector('.games')
+
+for(let i of popular_games){
+    let card = createGameElement(i);
+    popu.appendChild(card);
+}
+
+let button = document.querySelector('.Browse-All')
+button.addEventListener("click", () => {
+    window.location.href = "game.html";
+    button.style.cursor = 'pointer'
+})

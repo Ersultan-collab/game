@@ -601,6 +601,64 @@ let games_discount = [
         release_date: '06/09/2017',
         price:'22 999₸'
     },
+    {
+        id: 26,
+        img: 'img/wp6352566.jpg',
+        logo: 'https://4.bp.blogspot.com/-S8l8OGlJb5w/XP2Wvc_yG_I/AAAAAAAADzc/YrvEbopdXF0nS73IStWN1eDFJyGxAiddgCKgBGAs/w2560-h1440-p-k-no-nu/cyberpunk-2077-logo-uhdpaper.com-4K-91.jpg',
+        O_game: 'Cyberpunk 2077 is an open-world, action-adventure RPG set in the dark future of Night City — a dangerous megalopolis obsessed with power, glamor, and ceaseless body modification.',
+        about_game: [
+            'IMMERSE YOURSELF WITH UPDATE 2.1',
+            'CREATE YOUR OWN CYBERPUNK',
+            'EXPLORE THE CITY OF THE FUTURE',
+            'BUILD YOUR LEGEND', 
+            'CLAIM EXCLUSIVE ITEMS'
+        ],
+        games: [
+            "Night City feels more alive than ever with the free Update 2.1! Take a ride on the fully functional NCART metro system, listen to music as you explore the city with the Radioport, hang out with your partner in V’s apartment, compete in replayable races, ride new vehicles, enjoy improved bike combat and handling, discover hidden secrets and much, much more!",
+            'Become a cyberpunk, an urban mercenary equipped with cybernetic enhancements and build your legend on the streets of Night City.',
+            "Night City is packed to the brim with things to do, places to see, and people to meet. And it’s up to you where to go, when to go, and how to get there.",
+            "Go on daring adventures and build relationships with unforgettable characters whose fates are shaped by the choices you make.",
+            'Claim in-game swag & digital goodies inspired by CD PROJEKT RED games as part of the My Rewards program.',
+        ],
+        name:'Cyberpunk 2077',
+        release_date: '10/12/2020',
+        price: '13 108₸'
+    },
+    {
+        id: 27,
+        img: 'img/4495414.jpg',
+        logo: 'https://th.bing.com/th/id/R.3061c97dd1fc36797de2e50d711b26c9?rik=1jlH1BJiOGZ8dg&pid=ImgRaw&r=0',
+        O_game: 'Ghostrunner offers a unique single-player experience: fast-paced, violent combat, and an original setting that blends science fiction with post-apocalyptic themes. It tells the story of a world that has already ended and its inhabitants who fight to survive.',
+        about_game: [
+            "Welcome to the future. It's gonna kill you.",
+        ],
+        games: [
+            "Ghostrunner is a hardcore FPP game packed with lightning-fast action, set in a grim, cyberpunk megastructure. Climb Dharma Tower, humanity’s last shelter, after a world-ending cataclysm. Make your way up from the bottom to the top, confront the tyrannical Keymaster, and take your revenge.",
+            'The streets of this tower city are full of violence. Mara the Keymaster rules with an iron fist and little regard for human life.',
+            "As resources diminish, the strong prey on the weak and chaos threatens to consume what little order remains. The decisive last stand is coming. A final attempt to set things right before mankind goes over the edge of extinction.",
+            "As the most advanced blade fighter ever created, you’re always outnumbered but never outclassed. Slice your enemies with a monomolecular katana, dodge bullets with your superhuman reflexes, and employ a variety of specialized techniques to prevail.",
+            'Ghostrunner offers a unique single-player experience: fast-paced, violent combat, and an original setting that blends science fiction with post-apocalyptic themes. It tells the story of a world that has already ended and its inhabitants who fight to survive.',
+        ],
+        name:'Ghostrunner',
+        release_date: '10/12/2020',
+        price: '6 710₸'
+    },
+    {
+        id: 28,
+        img: 'img/1252748.png',
+        logo: 'https://vgmag.ir/wp-content/uploads/2018/10/Red_Dead_Redemption_2_30min.jpg',
+        O_game: 'Winner of over 175 Game of the Year Awards and recipient of over 250 perfect scores, Red Dead Redemption 2 is an epic tale of honor and loyalty at the dawn of the modern age. Includes Red Dead Redemption 2: Story Mode and Red Dead Online.',
+        about_game: [
+            "",
+        ],
+        games: [
+            "America, 1899. Arthur Morgan and the Van der Linde gang are outlaws on the run. With federal agents and the best bounty hunters in the nation massing on their heels, the gang must rob, steal and fight their way across the rugged heartland of America in order to survive. As deepening internal divisions threaten to tear the gang apart, Arthur must make a choice between his own ideals and loyalty to the gang who raised him.",
+            'Red Dead Redemption 2 also includes the shared living world of Red Dead Online – forge your own path as you battle lawmen, outlaw gangs and ferocious wild animals to build a life on the American frontier. Build a camp, ride solo or form a posse and explore everything from the snowy mountains in the North to the swamps of the South, from remote outposts to busy farms and bustling towns. Chase down bounties, hunt, fish and trade, search for exotic treasures, run your own underground Moonshine distillery, or become a Naturalist to learn the secrets of the animal kingdom and much more in a world of astounding depth and detail – includes all new features, gameplay content and additional enhancements released since launch.',
+        ],
+        name:'Red Dead Redemption 2',
+        release_date: '10/12/2020',
+        price: '6 600₸'
+    },
 ]
 
 let game = games_discount.find(games => games.id == id)
@@ -659,3 +717,7 @@ else{
 let game_names = document.querySelector('.game_names')
 game_names.textContent = game.name       
 
+let link = document.querySelector('.header-icon')
+link.addEventListener('click', () => {
+    window.location.href = 'cart.html'
+})

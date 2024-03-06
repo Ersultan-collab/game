@@ -7,6 +7,7 @@ body{
 button{
     font-family: 'Maven Pro', sans-serif;
 }
+
 header{
     width: 100%;
     position: relative;
@@ -76,7 +77,78 @@ header{
     color: yellow;
 }
 
+.categories{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: 20px;
+}
+.categories-cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+.categories-card{
+    width: 25%;
+    height: 150px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.categories-card-img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(70%);
+    position: absolute;
+    z-index: -1;
+}
+
+.categories-card h1{
+    color: white;
+}
+
 .h1{
+    font-size: 30px;
+    color: white;
+    border-left: 4px solid yellow;
+    padding-left: 10px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+}
+
+
+.discount-game{
+    
+    margin-top: 100px;
+    width: 100%;
+}
+.discount-game-div{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 80%;
+    margin: auto;
+}
+.discount-game-texts{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.discount-game-texts h1{
     font-size: 30px;
     color: white;
     border-left: 4px solid yellow;
@@ -85,162 +157,106 @@ header{
     display: flex;
     align-items: center;
 }
-
-.cart{
-    width: 70%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-}
-.cart-cards{
-    width: 100%;
+.discount-game-buttons{
     display: flex;
     flex-direction: row;
-    justify-content: start;
-    align-items: start;
-    gap: 50px;
-}
-
-.cards{
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
+    justify-content: end;
+    align-items: center;
     gap: 20px;
 }
+.discount-game-button-one{
+    width: 100px;
+    padding: 5px;
+    border: 2px solid yellow;
+    background-color: transparent;
+    border-radius: 20px;
+    color: white;
+}
 
-
-.card{
-    width: 100%;
-    height: 150px;
+.discount-game-button-two{
+    border: none;
+    background-color: rgba(0, 0, 0, 0.523);
+    border-radius: 30px 30px 30px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px;
+}
+.ion-icon{
+    color: white;
+}
+.discount-game-cards{
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 10px;
-    background-color: rgb(75, 75, 75);
-    border-radius: 30px;
-    padding: 10px;
+    gap: 20px;
+    width: 100%;
 }
-
-.card-img{
-    width: 120px;
-    height: 100%;
-   
+.discount-game-card{
+    width: 20%;
+    height: 300px;
     border-radius: 20px;
-    margin-left: 5px;
-    position: relative;
     overflow: hidden;
+    position: relative;
 }
-
-.cards-img{
-    position: absolute;
-    top: 0;
-    left: 0;
+.discount-game-img{
     width: 100%;
     height: 100%;
+    position: absolute;
     background-size: cover;
     background-position: center;
+    filter: brightness(80%);
+    transition: transform 1s, filter 1s ease;
+    z-index: -1;
+}
+.discount-game-card-text{
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
 }
 
-.card-texts{
+
+.text-button{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: end;
-    gap: 10px;
-    width: 80%;
-    height: 100%;
+    align-items: center;
+    gap: 5px;
 }
-
-.remove{
-    width: 100px;
-    padding: 8px;
+.text-button-one{
+    width: 150px;
+    padding: 10px;
     border-radius: 20px;
-    border: none;
     background-color: yellow;
-    margin-bottom: 10px;
+    border: none;
 }
-
-.card-text{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: start;
-    height: 100%;
-}
-
-.card-text h1{
-    color: white;
-    margin-bottom: 10px;
-}
-
-.card-text h3{
-    color: white;
-}
-
-.cart-summary{
-    width: 28%;
-    height: 270px;
-    border-radius: 30px;
-    border: 1px solid yellow;
-    position: sticky;
-    top: 0;
-}
-
-.cart-summary h1{
-    color: white;
-    text-align: center;
-}
-
-.cart-summary-price{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    width: 90%;
-    margin: 0 auto;
-
-}
-
-.cart-summary-price hr{
-    margin-top: 0;
-    width: 100%;
-    border: 1px solid yellow;
-}
-
-.cart-summary-price h3{
-    color: white;
-    margin-top: 20px;
-}
-
-.cart-summary-price p{
-    color: white;
-    margin-top: 20px;
-}
-
 .price{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    color: white;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.total-price{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-.check-out{
-    width: 100%;
-    padding: 20px;
-    border-radius: 20px;
+.text-button-two{
     border: none;
-    background-color: yellow;
+    background-color: rgba(0, 0, 0, 0.523);
+    border-radius: 30px 30px 30px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px;
+}
+
+.load-more{
+    width: 150px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid yellow;
+    background: transparent;
+    color: yellow;
+    margin: 20px 40% ;
+    cursor: pointer;
 }
 
 footer{
